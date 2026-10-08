@@ -1,16 +1,20 @@
-# React + Vite
+# ArenaX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ArenaX is a gaming tournament portal with a React frontend and an Express/MongoDB API.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Install the frontend dependencies with `npm install` in `frontend`.
+2. Install the backend dependencies with `npm install` in `backend`.
+3. Create `backend/.env` with:
 
-## React Compiler
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_long_random_secret
+   PORT=5000
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. Start the API with `npm run dev` in `backend`.
+5. Start the frontend with `npm run dev` in `frontend`.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The frontend expects the API at `http://localhost:5000/api`.

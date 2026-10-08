@@ -1,9 +1,825 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap');
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #07070d;
+  color: #ffffff;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(109, 40, 217, .15), transparent 30%),
+    radial-gradient(circle at 10% 40%, rgba(0, 210, 255, .08), transparent 25%),
+    #07070d;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  height: 78px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(7, 7, 13, .82);
+  backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid rgba(255,255,255,.07);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: "Orbitron";
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.logo-icon {
+  margin-right: 8px;
+}
+
+.logo-x {
+  color: #9b5cff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: #9d9da8;
+  font-size: 14px;
+  font-weight: 500;
+  transition: .25s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.login-btn,
+.signup-btn {
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.login-btn {
+  background: transparent;
+  color: white;
+}
+
+.signup-btn {
+  color: white;
+  border: none;
+  background: linear-gradient(135deg,#7c3aed,#a855f7);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 650px;
+  padding: 90px 8% 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+}
+
+.hero-content {
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+}
+
+.live-badge,
+.section-label {
+  color: #a78bfa;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 8px 14px;
+  margin-bottom: 24px;
+
+  border: 1px solid rgba(167,139,250,.25);
+  border-radius: 30px;
+
+  background: rgba(124,58,237,.08);
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #22c55e;
+}
+
+.hero h1 {
+  font-family: "Orbitron";
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: .98;
+  letter-spacing: -3px;
+}
+
+.hero h1 span {
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #a855f7,
+    #38bdf8
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin-top: 25px;
+  color: #9d9da8;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 22px;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: .25s;
+}
+
+.primary-btn {
+  color: white;
+  border: none;
+
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #a855f7
+  );
+
+  box-shadow: 0 10px 30px rgba(124,58,237,.25);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(124,58,237,.4);
+}
+
+.secondary-btn {
+  color: white;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.secondary-btn:hover {
+  background: rgba(255,255,255,.08);
+}
+
+.hero-trust {
+  display: flex;
+  gap: 22px;
+  margin-top: 35px;
+  color: #777783;
+  font-size: 12px;
+}
+
+/* ================= HERO VISUAL ================= */
+
+.hero-visual {
+  width: 420px;
+  height: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(168,85,247,.18);
+}
+
+.circle-one {
+  width: 420px;
+  height: 420px;
+}
+
+.circle-two {
+  width: 310px;
+  height: 310px;
+}
+
+.gaming-card {
+  width: 290px;
+  padding: 25px;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(30,25,48,.95),
+    rgba(12,12,20,.98)
+  );
+
+  border: 1px solid rgba(168,85,247,.25);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.5),
+    0 0 50px rgba(124,58,237,.12);
+
+  position: relative;
+  z-index: 2;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  color: #a78bfa;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.gaming-icon {
+  font-size: 55px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.gaming-card h3 {
+  font-family: "Orbitron";
+  text-align: center;
+  font-size: 19px;
+}
+
+.gaming-card .championship {
+  color: #a855f7;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.card-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-info small {
+  color: #777783;
+  font-size: 9px;
+}
+
+.card-info strong {
+  font-size: 15px;
+}
+
+.gaming-card button {
+  width: 100%;
+  border: 1px solid rgba(168,85,247,.3);
+  background: rgba(124,58,237,.12);
+  color: #c4b5fd;
+  padding: 11px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+  margin: 0 7%;
+  padding: 35px 40px;
+
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-family: "Orbitron";
+  font-size: 25px;
+}
+
+.stat span {
+  display: block;
+  margin-top: 7px;
+  color: #73737e;
+  font-size: 12px;
+}
+
+/* ================= SECTION ================= */
+
+.section {
+  padding: 100px 8%;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 40px;
+}
+
+.section-heading h2 {
+  font-family: "Orbitron";
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.section-heading p {
+  margin-top: 8px;
+  color: #777783;
+  font-size: 14px;
+}
+
+.view-all {
+  color: #a78bfa;
+  background: none;
+  border: none;
+  font-weight: 600;
+}
+
+/* ================= TOURNAMENT CARDS ================= */
+
+.tournament-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.tournament-card {
+  overflow: hidden;
+  border-radius: 15px;
+
+  background: #101017;
+  border: 1px solid rgba(255,255,255,.07);
+
+  transition: .3s;
+}
+
+.tournament-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(168,85,247,.35);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.35),
+    0 0 30px rgba(124,58,237,.08);
+}
+
+.tournament-banner {
+  height: 130px;
+  padding: 18px;
+
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+
+  background:
+    radial-gradient(
+      circle at 70% 40%,
+      rgba(168,85,247,.35),
+      transparent 35%
+    ),
+    linear-gradient(135deg,#181326,#0e0e15);
+}
+
+.game-icon {
+  font-size: 43px;
+}
+
+.status {
+  padding: 5px 9px;
+  border-radius: 20px;
+
+  color: #a78bfa;
+  background: rgba(124,58,237,.12);
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.status.live {
+  color: #4ade80;
+  background: rgba(34,197,94,.1);
+}
+
+.tournament-body {
+  padding: 23px;
+}
+
+.tournament-body > small {
+  color: #777783;
+  font-size: 10px;
+}
+
+.tournament-body h3 {
+  margin: 8px 0 22px;
+  font-family: "Orbitron";
+  font-size: 17px;
+}
+
+.tournament-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.tournament-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tournament-details span {
+  color: #666672;
+  font-size: 10px;
+}
+
+.tournament-details strong {
+  font-size: 14px;
+}
+
+.join-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 11px;
+
+  color: white;
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 7px;
+
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.join-btn:hover {
+  background: rgba(124,58,237,.12);
+  border-color: rgba(168,85,247,.3);
+}
+
+/* ================= DATABASE ================= */
+
+.database-section {
+  padding-top: 30px;
+}
+
+.empty-box {
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 16px;
+  border: 1px dashed rgba(255,255,255,.1);
+
+  background: rgba(255,255,255,.015);
+}
+
+.empty-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.empty-box h3 {
+  font-family: "Orbitron";
+}
+
+.empty-box p {
+  color: #777783;
+  margin: 8px 0 20px;
+  font-size: 13px;
+}
+
+/* ================= CTA ================= */
+
+.cta {
+  margin: 30px 8% 100px;
+  padding: 70px;
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(168,85,247,.25),
+      transparent 30%
+    ),
+    linear-gradient(
+      120deg,
+      #171124,
+      #0e0e16
+    );
+
+  border: 1px solid rgba(168,85,247,.18);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta h2 {
+  font-family: "Orbitron";
+  font-size: 38px;
+  margin: 15px 0;
+}
+
+.cta p {
+  color: #858590;
+  margin-bottom: 25px;
+}
+
+.cta-symbol {
+  font-size: 130px;
+  opacity: .15;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  padding: 50px 8%;
+  border-top: 1px solid rgba(255,255,255,.07);
+
+  color: #666672;
+}
+
+.footer-logo {
+  color: white;
+  font-family: "Orbitron";
+  font-size: 20px;
+}
+
+.footer-logo span {
+  color: #a855f7;
+}
+
+footer p {
+  margin: 12px 0 25px;
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+
+footer small {
+  font-size: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 950px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .hero-buttons,
+  .hero-trust {
+    justify-content: center;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+  }
+
+  .tournament-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: start;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .cta {
+    padding: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .signup-btn {
+    display: none;
+  }
+
+  .hero {
+    padding: 70px 20px;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .hero-visual {
+    transform: scale(.8);
+  }
+
+  .stats {
+    margin: 0 20px;
+    padding: 30px 10px;
+  }
+
+  .section {
+    padding: 70px 20px;
+  }
+
+  .cta {
+    margin: 20px;
+    padding: 35px 25px;
+  }
+
+  .cta h2 {
+    font-size: 28px;
+  }
+
+  .cta-symbol {
+    display: none;
+  }
+}
+/* React Router Links */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.primary-btn,
+.secondary-btn,
+.login-btn,
+.signup-btn,
+.view-all,
+.join-btn,
+.gaming-card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Authentication */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.auth-logo {
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.auth-card h1 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-card input,
+.auth-card select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.auth-submit {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.auth-error {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-footer a {
+  margin-left: 6px;
+  font-weight: 700;
+}
+
+.back-home {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
 }
